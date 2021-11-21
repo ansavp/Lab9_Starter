@@ -7,6 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lab 9</title>
 
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "1723ede110534b908d3bbbf0f6304c25"
+      // for more configuration options, see https://docs.trackjs.com
+    });
+  </script>
+
   <style>
     button {
       margin: 3px;
@@ -105,15 +113,15 @@
     errorBtns[0].addEventListener("click", (e) => {
         console.log("Console Log Demo");
       });
-      // Console Error
+      
       errorBtns[1].addEventListener("click", (e) => {
         console.error("Console Error Demo");
       });
-      // Console Count
+      
       errorBtns[2].addEventListener("click", (e) => {
         console.count("Count Button");
       });
-      // Console Warn
+      
       errorBtns[3].addEventListener("click", (e) => {
         console.warn("Console Warn Button");
       });
@@ -161,6 +169,61 @@
           },
         ]);
       });
+
+     
+      errorBtns[11].addEventListener("click", (e) => {
+        console.time("Timer Button");
+      });
+      
+      errorBtns[12].addEventListener("click", (e) => {
+        console.timeEnd("Timer Button");
+      });
+      // Console Trace
+      const deep = () => {
+        deeper();
+      };
+      const deeper = () => {
+        deepest();
+      };
+      const deepest = () => {
+        console.trace();
+      };
+      const handleBtnClick = () => {
+        deep();
+      };
+
+      //part 4
+      class invalidRecipe extends Error {
+        constructor(message) {
+          super(message);
+          this.name = "invalidRecipe";
+        }
+      }
+      function readRecipe(json) {
+        let recipe = JSON.parse(json);
+        if (!recipe.name) {
+          throw new invalidRecipe("No field: name");
+        }
+        if (!recipe.ingredient) {
+          throw new invalidRecipe("No field: ingredient");
+        }
+        return recipe;
+      }
+      try {
+        let recipe = readRecipe('{"name":"boiled egg"}');
+      } catch (err) {
+        if (err instanceof invalidRecipe) {
+          alert("Invalid data: " + err.message);
+        }
+      }
+      //part 5
+
+      // Trigger a Globar Error
+      errorBtns[14].addEventListener("click", (e) => {
+          console.log("Ooops, you threw an error!");
+          throw new SyntaxError("Invalid data");
+      });
+    </script>
 
   </script>
 </body>
