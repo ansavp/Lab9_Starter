@@ -102,6 +102,66 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+    errorBtns[0].addEventListener("click", (e) => {
+        console.log("Console Log Demo");
+      });
+      // Console Error
+      errorBtns[1].addEventListener("click", (e) => {
+        console.error("Console Error Demo");
+      });
+      // Console Count
+      errorBtns[2].addEventListener("click", (e) => {
+        console.count("Count Button");
+      });
+      // Console Warn
+      errorBtns[3].addEventListener("click", (e) => {
+        console.warn("Console Warn Button");
+      });
+      // Console Assert
+      errorBtns[4].addEventListener("click", (e) => {
+        const x = "apple";
+        const y = "organe";
+        const reason = "apple is not expected to be organe";
+        console.assert(x == y, { x, y, reason });
+      });
+      // Console Clear
+      errorBtns[5].addEventListener("click", (e) => {
+        console.clear();
+      });
+      // Console Dir
+      errorBtns[6].addEventListener("click", (e) => {
+        console.dir(errorBtns[6]);
+      });
+      // Console dirxml
+      errorBtns[7].addEventListener("click", (e) => {
+        console.dirxml(errorBtns[7]);
+      });
+      // Console Group Start
+      errorBtns[8].addEventListener("click", (e) => {
+        console.group("group");
+      });
+      // Console Group End
+      errorBtns[9].addEventListener("click", (e) => {
+        console.groupEnd("group");
+      });
+      // Console Table
+      errorBtns[10].addEventListener("click", (e) => {
+        console.table([
+          {
+            title: "Software Engineering",
+            number: "110",
+          },
+          {
+            title: "Computer Vision",
+            number: "152",
+          },
+          {
+            title: "Computer Graphics",
+            number: "167",
+          },
+        ]);
+      });
+
   </script>
 </body>
 
